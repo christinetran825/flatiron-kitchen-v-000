@@ -11,9 +11,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.create(recipe_params)
-    if recipe.save
-      redirect_to recipes_path
+    @recipe = Recipe.create(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
@@ -23,9 +23,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    if @recipe.save
-      redirect_to recipes_path(@recipe)
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
       render :edit
     end
