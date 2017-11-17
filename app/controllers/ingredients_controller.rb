@@ -20,13 +20,13 @@ class IngredientsController < ApplicationController
 
   def show
   end
-  
+
   def edit
   end
 
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to ingredient_path(@ingredients)
+      redirect_to ingredient_path(@ingredient)
     else
       render :edit
     end
