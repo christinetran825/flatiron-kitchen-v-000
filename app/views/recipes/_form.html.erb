@@ -5,8 +5,7 @@
   <%=f.label :name, 'Name:' %>
   <%=f.text_field :name %>
   <br><br>
-  <% if !ingredients.blank? %>
-    <%= f.label :ingredients, 'Ingredients:' %><br>
+  Choose one of the existing ingredients: <br>
     <%= f.collection_check_boxes :ingredient_id, Ingredient.all, :id, :name %>
   <% end %>
 
